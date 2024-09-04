@@ -1,0 +1,28 @@
+@import url(var.less);
+.items{
+    padding-bottom: 2rem;
+    &__row{
+        .flex(row, space-between, stretch);
+        flex-wrap: wrap;
+        flex: 1 1 @mobile;
+        gap: 2vw;
+    }
+    &__card{
+        flex: 1 1 250px;
+        padding: 10px 0;
+        .flex(column, start, stretch);
+        gap: 0.3rem;
+            p:nth-of-type(1){
+                padding: 0.4rem 0;
+            }
+            p:nth-of-type(2){
+                font-size: 1.2rem;
+                margin-top: auto;
+            }
+            img{
+                height: 220px;
+                width: auto;
+                object-fit: contain;
+            }
+    }
+}

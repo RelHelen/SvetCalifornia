@@ -1,0 +1,37 @@
+@import url("var.less");
+.footer{
+    background-color: @grey;
+    &__row{
+        padding-top: 3rem;
+        padding-bottom: 6rem;
+        .flex(row, space-between, stretch);
+        flex-wrap: wrap;
+        flex: 1 1 @mobile;
+        gap: 2vw;
+        .nav__logo{
+            
+            width: 170px;
+            height: 21px;
+        }
+        p{
+            
+            margin-top: 0.5rem;
+        }
+    }
+    &__column{
+        width: 19%;
+        @media (max-width: @tablet){
+            width: 48%;
+        }
+        &:first-child{
+            width: 100%;
+        }
+        li{
+            margin-top: 0.5rem;
+        }
+        .socialnetwork{
+            margin-top: 1rem;
+            max-width: 2rem;
+        }
+    }
+}

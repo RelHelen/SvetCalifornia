@@ -1,0 +1,126 @@
+@import url(var.less);
+.header{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    .nav{
+        background: @white;
+        .flex();
+        @media (max-width: @tablet){
+            padding-right: 100px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 999;
+            height: 80px;
+        }
+        .burger{           
+            width: 32px;
+            height: 32px;
+            border: 1px solid @primary;
+            border-radius: 5px;
+            padding: 3px; 
+            position: fixed;
+            right: 20px;
+            top: 20px; 
+            z-index: 2000;
+            display: none;
+            @media (max-width: @tablet){
+                display: block;}
+            & span{
+                position: relative; 
+                display: block;
+                height: 2px; 
+                top: (50% - 1px);
+                border-radius: 5px;
+                background: @primary;
+                transition: 0s; 
+                &::before{
+                    content:''; 
+                    position: absolute;
+                    display: block; 
+                    height: 2px; 
+                    background: @primary; 
+                    top: -8px;
+                    width: 100%;  
+                    border-radius: 5px; 
+                    transition: 1s;           
+                }
+                &::after{
+                    content:''; 
+                    position: absolute;
+                    display: block; 
+                    height: 2px;
+                    top:  8px;  
+                    width: 100%; 
+                    background: @primary;
+                    border-radius: 5px; 
+                    transition: 1s;              
+                }          
+            }
+            &.close{
+                & span{
+                    height: 0px;
+                    background: transparent;
+                    transition: 1s; 
+                    &::before{
+                        transform: rotate(45deg);
+                        top: 0;
+                        transition: 1s;
+                    }
+                    &::after{
+                        transform: rotate(-45deg);
+                        top: 0;
+                        transition: 1s;
+                    
+                }  
+            }
+            
+        }
+    }
+
+        &__logo{
+            margin-right: 1rem;
+            width: 170px;
+            height: 21px;
+        }
+        &__menu{
+            .flex(row, center, stretch);       
+            list-style-type: none;
+            gap: 2rem;
+            @media (max-width: @tablet){
+                // display: none;
+                position: fixed;
+                left: -1000px;
+                top: 0;bottom: 0;
+                transition: 1s;
+                z-index: 1000;
+                &.menu-visible {                     
+                    .flex(column, start, center);
+                    padding-top: 50px;;
+                    position: fixed;
+                    top: 0;bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    background: #cbc8c8;
+                    transition: 1s;
+                    z-index: 1000;
+                }
+            }
+        }
+    }
+}
+.menu{
+    &__item{
+        text-transform: uppercase;
+        font-family: @InterRegular;
+    }
+    &__link{
+        text-decoration: none;
+        color: @primary;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+   
+}
+

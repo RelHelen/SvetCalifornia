@@ -1,0 +1,147 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@primary:#2d2d2d;
+@white: #fff;
+@aqwa: #DCE5E2;
+@dark: #000000;
+@grey: #F8F9FA;
+@fz: 16px; //ОСновной шрифт
+@h1: @fz*3.5;
+@h2: @fz*2.8;
+@h3: @fz*2;
+@h4: @fz*1.4;
+.flex(@dir:row, @jc:space-between, @ai:center){
+    display: flex;
+    flex-direction: @dir;
+    justify-content: @jc;
+    align-items: @ai;
+
+}
+// Миксин для подключается шрифта
+.font(@fn; @weght: normal; @style: normal;){
+    font-family: '@{fn}';
+    src: local('@{fn}'), url('../font/@{fn}.ttf') format('truetype');
+    font-weight: @weght;
+    font-style: @style;
+}
+// Подключение "Inter"
+@Inter:'Inter';
+@InterBold:'@{Inter}-Bold';
+@InterRegular:'@{Inter}-Regular';
+// Подключение шрифта "ReadexPro"
+@ReadexPro:'ReadexPro';
+@ReadexProBold: '@{ReadexPro}-Bold';
+@ReadexProRegular: '@{ReadexPro}-Regular';
+// Описание правила для подключения шрифта "Inter"
+@font-face{
+    .font(@InterRegular);
+}
+@font-face{
+    .font(@InterBold, bold);
+}
+@font-face{
+    .font(@ReadexProRegular);
+}
+@font-face{
+    .font(@ReadexProRegular, bold);
+}
+// Мобильная верстка
+@mobile: 470px;
+@mobile-area: 470px;
+// Планшетная версия
+@tablet: 768px;
+@tablet-area: 760px;
+
+h1, h2, h3, h4{
+    font-family: @ReadexProRegular;
+}
+h1{
+    font-size: @h1;
+    line-height: @h1;
+}
+h2{
+    font-size: @h2;
+    line-height: @h2;
+    text-align: center;
+}
+h3{
+    font-size: @h3;
+    line-height: @h3;
+}
+h4{
+    font-size: @h4;
+    line-height: @h4;
+}
+ul{
+    list-style: none;
+}
+.container{
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 5vw;
+    @media (max-width: @tablet){
+        max-width: @tablet-area;
+    }
+}
+body{
+    color: @primary;
+    font-family: @InterRegular;
+    font-size: @fz; 
+}
+.btn{
+    height: 50px;
+    line-height: 50px;
+    border-radius: 200px;
+    border: 1px solid @primary;
+    background-color: transparent;
+    font-size: @fz+2px;
+    padding: 0 3*@fz;
+    transition: 1s;
+    &:hover{
+        background: @white;
+        cursor: pointer;
+    }
+    &--sm{
+        padding: 0 1.2*@fz;
+        font-size: 0.9*@fz;
+        height: 42px;
+        line-height: 42px;
+        border-color: #C5C5C5;
+    }
+}
+.heading{
+    text-align: center;
+    font-family: @ReadexProRegular;
+    font-size: 0.9rem;
+    padding: 0.5vh 0;
+}
+.resp{
+    width: 100%;
+}
+.input__group{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    border: 1px solid #C5C5C5;
+    border-radius: 100px;
+    background-color: #F8F9FA;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0.7rem;
+        input{
+            border: transparent;
+            background: transparent;
+            color: @dark;
+            width: 100%;
+            font-size: @h4;
+            margin-left: 1rem;
+            &:focus{
+                outline: none;
+            }
+            // padding: 1rem;
+        }
+}

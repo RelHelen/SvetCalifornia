@@ -1,0 +1,32 @@
+@import url(var.less);
+.best{
+    padding-bottom: 2rem;
+    &__row{
+        .flex(row, space-between, stretch);
+        flex-wrap: wrap;
+        gap: 2rem;
+        padding-top: 1rem;
+    }
+    &__card{
+        align-items: center;
+        padding: 10px 0;
+        .flex(column, start, center);
+        flex: 1 1 355px;
+        background-color: @grey;
+        border-radius: 15px;
+            .btn{
+                margin: 1.7rem 0;
+            }
+            h3{
+                padding: 0.6rem 0;
+            }
+            img{
+                max-width: 300px;
+                
+            }
+        // @media (max-width: @mobile){
+        //     margin: 0 auto;
+        //     min-width: 320px;
+        // }
+    }
+}
